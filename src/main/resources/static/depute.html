@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+    <title>委托单</title>
+    <link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css" th:href="@{easyui/themes/default/easyui.css}"/>
+    <link rel="stylesheet" type="text/css" href="easyui/themes/icon.css" th:href="@{easyui/themes/icon.css}"/>
+    <link rel="stylesheet" type="text/css" href="easyui/themes/color.css" th:href="@{easyui/themes/color.css}"/>
+    <link rel="stylesheet" type="text/css" href="css/base.css" th:href="@{css/base.css}"/>
+    <link rel="stylesheet" type="text/css" href="easyui/demo/demo.css" th:href="@{/easyui/demo/demo.css}"/>
+    <script type="text/javascript" src="jquery/jquery.min.js" th:src="@{jquery/jquery.min.js}"></script>
+    <script type="text/javascript" src="jquery/jquery.form.min.js" th:src="@{jquery/jquery.form.min.js}"></script>
+    <script type="text/javascript" src="easyui/jquery.easyui.min.js" th:src="@{easyui/jquery.easyui.min.js}"></script>
+    <script type="text/javascript" src="easyui/json.js" th:src="@{easyui/json.js}"></script>
+    <script type="text/javascript" src="easyui/easyui-lang-zh_CN.js" th:src="@{easyui/easyui-lang-zh_CN.js}"></script>
+    <script type="text/javascript" src="easyui/common.js" th:src="@{easyui/common.js}"></script>
+    <script type="text/javascript" src="js/datagrid-filter.js" th:src="@{js/datagrid-filter.js}"></script>
+    <script type="text/javascript" src="js/depute.js" th:src="@{js/depute.js}"></script>
+
+</head>
+<body class="easyui-layout" >
+<h2>委托单</h2>
+<div style="margin: 20px 0;"></div>
+<table id="dg" class="easyui-datagrid"  title="委托单" toolbar="#toolbar" style="width: 800px; height: 300px"></table>
+<div id="toolbar">
+    <a href="javascript:void(0)" class="easyui-linkbutton"
+       iconCls="icon-add" plain="true" onclick="createMain()">新增委托单</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton"
+       iconCls="icon-edit" plain="true" onclick="EditMain()">编辑委托单</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton"
+       iconCls="icon-cancel" plain="true" onclick="deleteMain()">删除委托单</a>
+</div>
+<p></p>
+    <table id="dg1" class="easyui-datagrid" title="委托单明细" toolbar="#toolbar1" style="width: 800px; height: 300px"></table>
+
+<div id="toolbar1">
+    <a href="javascript:void(0)" class="easyui-linkbutton"
+       iconCls="icon-add" plain="true" onclick="createLine()">新增明细</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton"
+       iconCls="icon-edit" plain="true" onclick="editLine()">编辑明细</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton"
+       iconCls="icon-cancel" plain="true" onclick="deleteLine()">删除明细</a>
+</div>
+<div id="dlg" class="easyui-dialog"
+     style="width: 550px; height: 350px; top:80px;left:80px;padding: 10px 20px" closed="true" buttons="#dlg-buttons">
+    <form id="fm" name="fm" method="post">
+        <div class="fitem">
+            <label>分销商</label><input name="ndealerid" id="ndealerid" class="easyui-textbox" style="width:300px" required="true" validType="length[1,20]" prompt="分销商代码"/>
+        </div>
+        <div class="fitem">
+            <label>分支机构</label><input name="nbranchid" id="nbranchid" class="easyui-textbox" style="width:300px" required="true" validType="length[1,50]" prompt="分支机构代码"/>
+        </div>
+        <div class="fitem">
+            <label>委托单号</label><input name="cservicerequisitionno" id="cservicerequisitionno" class="easyui-textbox" style="width:300px" validType="length[1,100]" required="true" prompt="委托单号"/>
+        </div>
+        <div class="fitem">
+            <label>车辆档案ID</label><input name="nvehicleid" id="nvehicleid" class="easyui-textbox" style="width:300px" validType="length[1,100]" required="true" prompt="车辆档案ID"/>
+        </div>
+        <div class="fitem">
+            <label>状态</label><input name="crepairstatus" id="crepairstatus" class="easyui-combobox" style="width:300px" required="true" validType="length[1,50]" prompt="状态"/>
+        </div>
+        <div class="fitem">
+            <label>故障描述</label><input name="cmalfunctiondescription" id="cmalfunctiondescription" class="easyui-textbox" style="width:300px;height:60px" multiline="true" validType="length[1,500]" />
+        </div>
+        <input type="text" hidden="true" name="id" id="id"/>
+    </form>
+
+</div>
+<div id="dlg-buttons">
+    <a  href="javascript:void(0)" class="easyui-linkbutton"
+        iconCls="icon-ok" onclick="saveCourse()" style="width: 90px">保存</a> <a
+        href="javascript:void(0)" class="easyui-linkbutton"
+        iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')"
+        style="width: 90px">取消</a>
+</div>
+</body>
+</html>

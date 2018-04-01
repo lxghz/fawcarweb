@@ -1,0 +1,33 @@
+#framecontentLeft
+{
+position: fixed;
+top: 0px;
+left: 0px;
+width: 230px;
+    right: 1px;
+    bottom: 0;
+overflow: auto;
+vertical-align: top;
+background-color: #D2E6FA;
+}
+#maincontent
+{
+position: fixed;
+left: 240px;
+top: 0px;
+right: 0;
+bottom: 0;
+overflow: auto;
+background: #fff;
+border-top: solid 2px #70cbea;
+border-left: solid 2px #70cbea;
+}
+* html body
+{
+padding: 100px 0 0 0px;
+}
+* html #maincontent
+{
+height: 100%;
+width: 100%;
+}

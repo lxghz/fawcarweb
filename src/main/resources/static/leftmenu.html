@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一汽轿车经销商管理系统</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0}
+        body{font-size: 12px;font-family: "宋体","微软雅黑";}
+        ul,li{list-style: none;}
+        a:link,a:visited{text-decoration: none;}
+        .list{width: 210px;border-bottom:solid 1px #316a91;margin:2px auto 0 auto;}
+        .list ul li{background-color:#467ca2; border:solid 1px #316a91; border-bottom:0;}
+        .list ul li a{padding-left: 10px;color: #fff; font-size:12px; display: block; font-weight:bold; height:36px;line-height: 36px;position: relative;
+        }
+        .list ul li .inactive{ background:url(images/off.png) no-repeat 184px center;}
+        .list ul li .inactives{background:url(images/on.png) no-repeat 184px center;}
+        .list ul li ul{display: none;}
+        .list ul li ul li { border-left:0; border-right:0; background-color:#6196bb; border-color:#467ca2;}
+        .list ul li ul li ul{display: none;}
+        .list ul li ul li a{ padding-left:20px;}
+        .list ul li ul li ul li { background-color:#d6e6f1; border-color:#6196bb; }
+        .last{ background-color:#d6e6f1; border-color:#6196bb; }
+        .list ul li ul li ul li a{ color:#316a91; padding-left:30px;}
+    </style>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.inactive').click(function(){
+                if($(this).siblings('ul').css('display')=='none'){
+                    $(this).parent('li').siblings('li').removeClass('inactives');
+                    $(this).addClass('inactives');
+                    $(this).siblings('ul').slideDown(100).children('li');
+                    if($(this).parents('li').siblings('li').children('ul').css('display')=='block'){
+                        $(this).parents('li').siblings('li').children('ul').parent('li').children('a').removeClass('inactives');
+                        $(this).parents('li').siblings('li').children('ul').slideUp(100);
+
+                    }
+                }else{
+                    //控制自身变成+号
+                    $(this).removeClass('inactives');
+                    //控制自身菜单下子菜单隐藏
+                    $(this).siblings('ul').slideUp(100);
+                    //控制自身子菜单变成+号
+                    $(this).siblings('ul').children('li').children('ul').parent('li').children('a').addClass('inactives');
+                    //控制自身菜单下子菜单隐藏
+                    $(this).siblings('ul').children('li').children('ul').slideUp(100);
+
+                    //控制同级菜单只保持一个是展开的（-号显示）
+                    $(this).siblings('ul').children('li').children('a').removeClass('inactives');
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+<div class="list">
+    <ul class="yiji">
+        <li><a href="#">一汽轿车经销商</a></li>
+        <li><a href="#" class="inactive">销售管理</a>
+            <ul style="display: none">
+                <li><a href="#" class="inactive active">工作管理</a>
+                    <ul>
+                        <li><a href="#">制定工作计划</a></li>
+                        <li><a href="#">销售主管月度工作管理表</a></li>
+                        <li><a href="#">执行工作计划</a></li>
+                        <li><a href="#">检查工作计划</a></li>
+                        <li><a href="#">每日工作评分</a></li>
+                        <li><a href="#">日考核统计表</a></li>
+                        <li><a href="#">销售顾问考核结果汇总表</a></li>
+                        <li><a href="#">销售顾问月度工作目视管理表</a></li>
+                        <li><a href="#">制定销售主管工作</a></li>
+                        <li><a href="#">执行销售主管工作</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">客户管理</a>
+                    <ul>
+                        <li><a href="#">客户来访量统计</a></li>
+                        <li><a href="#">意向客户跟进表</a></li>
+                        <li><a href="#">意向客户跟进汇总表</a></li>
+                        <li><a href="#">客户及车辆信息表</a></li>
+                        <li><a href="#">销售顾问回访</a></li>
+                        <li><a href="#">集团客户跟进表</a></li>
+                        <li><a href="#">集团客户信息表</a></li>
+                        <li><a href="#">集团客户销售监控表</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">采购管理</a>
+                    <ul>
+                        <li><a href="#">车辆订货入库</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">销售管理</a>
+                    <ul>
+                        <li><a href="#">客户销售订购</a></li>
+                        <li><a href="#">个人销售目标</a></li>
+                        <li><a href="#">部门销售目标</a></li>
+                        <li><a href="#">销售日报</a></li>
+                        <li><a href="#">月销售业绩分析表</a></li>
+                        <li><a href="#">月销售业绩管理看板</a></li>
+                        <li><a href="#">年度销售目标完成情况对照表</a></li>
+                        <li><a href="#">最低售价设置</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">库存管理</a>
+                    <ul>
+                        <li><a href="#">整车库存浏览</a></li>
+                        <li><a href="#">车辆周检表</a></li>
+                        <li><a href="#">试乘试驾车周检表</a></li>
+                        <li><a href="#">整车库龄查询</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">统计分析</a>
+                    <ul>
+                        <li><a href="#">月销售统计</a></li>
+                        <li><a href="#">日销售统计</a></li>
+                        <li><a href="#">销售目标预测</a></li>
+                        <li><a href="#">车辆库存信息统计</a></li>
+                        <li><a href="#">销售管理分析</a></li>
+                        <li><a href="#">车辆管理分析</a></li>
+                        <li><a href="#">系统参数设定</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">系统管理</a>
+                    <ul>
+                        <li><a href="#">权限分配</a></li>
+                        <li><a href="#">密码修改</a></li>
+                        <li><a href="#">标准资料设置</a></li>
+                        <li><a href="#">运行参数设定</a></li>
+                        <li><a href="#">跟踪操作</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#" class="inactive">服务管理</a>
+            <ul style="display: none">
+                <li><a href="#" class="inactive active">预约管理</a>
+                    <ul>
+                        <li><a href="#">预约管理</a></li>
+                        <li><a href="#">预约电子看板</a></li>
+                        <li><a href="#">预约配件资源释放</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">前台管理</a>
+                    <ul>
+                        <li><a href="#">前台接待</a></li>
+                        <li><a href="#">作业看板</a></li>
+                        <li><a href="#">结算</a></li>
+                        <li><a href="#">服务看板</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">车间管理</a>
+                    <ul>
+                        <li><a href="#">车间作业</a></li>
+                        <li><a href="#">质检管理</a></li>
+                        <li><a href="#">工时修改</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">理赔管理</a>
+                    <ul>
+                        <li><a href="#">理赔管理</a></li>
+                        <li><a href="#">理赔单提交</a></li>
+                        <li><a href="#">保养管理</a></li>
+                        <li><a href="#">寄出旧件</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">客户管理</a>
+                    <ul>
+                        <li><a href="#">客户档案</a></li>
+                        <li><a href="#">售后回访</a></li>
+                        <li><a href="#">维修回访</a></li>
+                        <li><a href="#">保养提醒</a></li>
+                        <li><a href="#">保养计划</a></li>
+                        <li><a href="#">顾客生日祝贺</a></li>
+                        <li><a href="#">车辆续保提醒</a></li>
+                        <li><a href="#">年审提醒</a></li>
+                        <li><a href="#">投诉处理</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+        <li><a href="#" class="inactive">配件管理</a>
+            <ul style="display: none">
+                <li><a href="#" class="inactive active">订货系统</a>
+                    <ul>
+                        <li><a href="#">请购管理</a></li>
+                        <li><a href="#">订购管理</a></li>
+                        <li><a href="#">意向需求配件管理</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">入库管理</a>
+                    <ul>
+                        <li><a href="#">采购入库（及退货）</a></li>
+                        <li><a href="#">其它入库（及退货）</a></li>
+                        <li><a href="#">调拔入库（及退货）</a></li>
+                        <li><a href="#">订购入库（及退货）</a></li>
+                        <li><a href="#">入库明细查询</a></li>
+                        <li><a href="#">入库汇总查询</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">出库管理</a>
+                    <ul>
+                        <li><a href="#">领料出库（及退货）</a></li>
+                        <li><a href="#">销售出库（及退货）</a></li>
+                        <li><a href="#">调拔入库（及退货）</a></li>
+                        <li><a href="#">订购入库（及退货）</a></li>
+                        <li><a href="#">报价管理</a></li>
+                        <li><a href="#">出库明细查询</a></li>
+                        <li><a href="#">出库汇总查询</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">库存管理</a>
+                    <ul>
+                        <li><a href="#">库存浏览</a></li>
+                        <li><a href="#">价格调整</a></li>
+                        <li><a href="#">移库管理</a></li>
+                        <li><a href="#">盘点管理</a></li>
+                        <li><a href="#">库存盈亏</a></li>
+                        <li><a href="#">库存盈亏查询</a></li>
+                        <li><a href="#">库存调价查询</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">基础资料</a>
+                    <ul>
+                        <li><a href="#">配件往来客户档案</a></li>
+                        <li><a href="#">供应商档案</a></li>
+                        <li><a href="#">配件属性定义</a></li>
+                        <li><a href="#">互换编码定义</a></li>
+                        <li><a href="#">库存警戒线设置</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">统计报表</a>
+                    <ul>
+                        <li><a href="#">购进入库统计</a></li>
+                        <li><a href="#">维修出库统计</a></li>
+                        <li><a href="#">调拔出库统计</a></li>
+                        <li><a href="#">销售出库统计</a></li>
+                        <li><a href="#">配件库存统计</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">互动管理</a>
+                    <ul>
+                        <li><a href="#">订单提交</a></li>
+                        <li><a href="#">索赔申请</a></li>
+                        <li><a href="#">订单状态查询</a></li>
+                        <li><a href="#">发货单状态查询</a></li>
+                        <li><a href="#">索赔单查询</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="inactive active">系统管理</a>
+                    <ul>
+                        <li><a href="#">业务权限设置</a></li>
+                        <li><a href="#">修改密码</a></li>
+                        <li><a href="#">用户信息设置</a></li>
+                        <li><a href="#">标准资料设定</a></li>
+                        <li><a href="#">互换编码定义</a></li>
+                    </ul>
+                </li>
+                <li class="last"><a href="depute.html" target="content">委托单</a></li>
+            </ul>
+        </li>
+
+    </ul>
+</div>
+</body>
+</html>
